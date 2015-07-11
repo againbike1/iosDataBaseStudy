@@ -100,6 +100,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    //编辑Text
     if ([[segue identifier] isEqualToString:@"showEditTextViewController"]) {
         EditTextViewController* EditTextViewController = [segue destinationViewController];
         EditTextViewController.managedObjectContext = self.managedObjectContext;
@@ -132,6 +133,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     //  Based on the selected row take some action
+    //得到高权限的实体列表
     if (indexPath.row==4)
     {
         
@@ -143,6 +145,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
                          otherButtonTitles:nil  ];
         
         // Use Fetched property to get a list of high-pri tasks
+        //通过Fetched property得到所有的优先级高于4的优先级列表
         NSArray* highPriTasks = self.managedTaskObject.highPriTasks;
         NSMutableString* alertMessage =
         [[NSMutableString alloc] init];
@@ -181,7 +184,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         [[NSDictionary alloc]
          initWithObjectsAndKeys:self.managedTaskObject.dueDate,
          @"DUE_DATE",nil];
-        
+        //通过存储获取函数tasksDueSooner来请求满足dict条件的列表
         NSFetchRequest* request =
         [model fetchRequestFromTemplateWithName:@"tasksDueSooner"
                           substitutionVariables:dict];

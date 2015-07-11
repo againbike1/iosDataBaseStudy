@@ -21,6 +21,7 @@
 @dynamic highPriTasks;
 @dynamic primitiveDueDate;
 
+#pragma mark 重载Overdue这个属性的方法。
 - (NSNumber*) isOverdue
 {
     BOOL isTaskOverdue = NO;
@@ -35,6 +36,8 @@
     return [NSNumber numberWithBool:isTaskOverdue];
 }
 
+
+#pragma mark 对一些对象初始化一些默认值。
 - (void)awakeFromInsert
 {
     // Core Data  calls this function the first time the receiver
@@ -49,7 +52,7 @@
     self.primitiveDueDate = defualtDate ;
 
 }
-
+#pragma mark 验证DueDate这个属性
 -(BOOL)validateDueDate:(id *)ioValue error:(NSError **)outError{
     
     // Due dates in the past are not valid.
@@ -102,6 +105,7 @@
     }
 }
 
+#pragma mark 当插入对象的时候，回调用这个方法来验证
 - (BOOL)validateForInsert:(NSError **)outError
 {
     // Call the superclass validateForInsert first
@@ -120,6 +124,7 @@
     }
 }
 
+#pragma mark 当更新对象时，会验证更新
 - (BOOL)validateForUpdate:(NSError **)outError
 {
     // Call the superclass validateForUpdate first

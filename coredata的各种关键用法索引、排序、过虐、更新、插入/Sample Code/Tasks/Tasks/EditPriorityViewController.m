@@ -69,7 +69,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     // Configure the managed object
     self.managedTaskObject.priority=[NSNumber numberWithInt:indexPath.row];
-    
+    //保存修改
     // Save the context.
     NSError *error = nil;
     if (![self.managedObjectContext save:&error]) {
@@ -86,6 +86,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         
         // Roll back the context to
         // revert back to the old priority
+        //回滚修改
         [self.managedObjectContext rollback];
         
         

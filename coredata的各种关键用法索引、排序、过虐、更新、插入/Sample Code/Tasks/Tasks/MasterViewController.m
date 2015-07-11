@@ -41,17 +41,19 @@
 }
 
 - (void)insertNewObject:(id)sender {
-    
+    //得到上下文
     NSManagedObjectContext *context =
     [self.fetchedResultsController managedObjectContext];
     
-    
+    //获取实体描述
     NSEntityDescription *entity =
     [[self.fetchedResultsController fetchRequest] entity];
+    //通过实体描述和上下文新建一个Task实体。
     Task *newTask =
     [NSEntityDescription insertNewObjectForEntityForName:[entity name]
                                   inManagedObjectContext:context];
     
+    //把新建实体保存到上下文中。
     // Save the context.
     NSError *error = nil;
     if (![context save:&error]) {
@@ -274,7 +276,7 @@
     
     // Clear the fetched results controller cache
     [NSFetchedResultsController deleteCacheWithName:nil];
-    
+    //通过谓词来过虐请求结果
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"priority == 3"];
     [fetchRequest setPredicate:predicate];
     
@@ -315,7 +317,7 @@
 -(IBAction)locationButtonPressed:(id)sender
 {
     NSLog(@"locationButtonPressed");
-    
+    //请求所有的位置列表
     LocationTasksViewController* ltvc =
     [[LocationTasksViewController alloc]
      initWithStyle:UITableViewStylePlain];

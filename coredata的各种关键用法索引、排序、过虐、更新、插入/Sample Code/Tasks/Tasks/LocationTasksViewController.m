@@ -69,6 +69,7 @@
     [fetchRequest setEntity:entity];
     
     // Edit the sort key as appropriate.
+    //通过Task的关联实体的name属性来排序。
     NSSortDescriptor *sortDescriptor =
     [[NSSortDescriptor alloc] initWithKey:@"location.name"
                                 ascending:YES];
@@ -79,6 +80,7 @@
     
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
+    //Task对象指向的location对象引用的name属性。
     NSFetchedResultsController *aFetchedResultsController =
     [[NSFetchedResultsController alloc]
      initWithFetchRequest:fetchRequest

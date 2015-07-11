@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>903307C3-F2E0-4920-B2F2-EF564901E4BE</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>Tasks</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>98BB26895E0324A642381536B4A2A22149BD640B</key>
 		<string>https://github.com/huang303513/iosDataBaseStudy.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Chapter 7/Sample Code/Tasks/Tasks.xcodeproj/project.xcworkspace</string>
+	<string>Chapter 7/Sample Code/Tasks/Tasks.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>98BB26895E0324A642381536B4A2A22149BD640B</key>
